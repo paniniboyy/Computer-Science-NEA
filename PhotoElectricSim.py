@@ -101,6 +101,14 @@ class MetalLead(Metal):
         self.name = "Lead"
         self.WorkFunctionEV = 4.02
 
+class Radiation():# This class represents a radiation source with its x and y coordinates, wavelength, and frequency.
+    def __init__(self, x, y, wavelength, frequency):
+        self.x = x #x coordinate of the radiation source
+        self.y = y #y coordinate of the radiation source
+        self.wavelength = wavelength #wavelength of radiation source given as a float value
+        self.frequency = frequency #frequency of radiation source given as a float value
+
+        
 
 
 
