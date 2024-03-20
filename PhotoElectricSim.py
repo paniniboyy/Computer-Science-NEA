@@ -1,5 +1,8 @@
 import random
 import numpy as np
+import tkinter as tk
+import PhotoElectricGUI as slider
+
 
 
 class Metal():
@@ -93,7 +96,25 @@ class Radiation():# This class represents a radiation source with its x and y co
         self.y = y #y coordinate of the radiation source
         self.wavelength = wavelength #wavelength of radiation source given as a float value
         self.frequency = frequency #frequency of radiation source given as a float value
-    
+
+class MainApp():
+    def __init__(self):   
+ # Create the main window
+        self.root = tk.Tk()
+        self.root.title("Radiation Source")
+        self.root.geometry("400x200")
+        # Create a Radiation object
+        self.radiation_source = tk.Radiation(x=50, y=50, wavelength=500e-9, frequency=600e12)
+        # Create a label to display the frequency of the radiation source
+        self.frequency_label = tk.Label(self.root, text="Frequency: 0.000 THz")
+        self.frequency_label.pack()
+        # Create a slider to adjust the wavelength of the radiation source
+        slider.create_slider(self.root, self.radiation_source, self.frequency_label)
+        # Start the Tkinter main loop
+        self.root.mainloop()
+
+if __name__ == "__main__":
+    app = MainApp()
     
 
 
